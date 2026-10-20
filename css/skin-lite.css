@@ -1,0 +1,36 @@
+/* ===== Trend · скин Lite: плоский, лёгкий, без теней и тяжёлых эффектов ===== */
+:root {
+  --bg: #ffffff; --surface: #ffffff; --surface-2: #f3f4f6; --text: #111827; --muted: #6b7280; --border: #e5e7eb;
+  --primary: #2563eb; --primary-hover: #1d4ed8; --primary-soft: #eff4ff;
+  --danger: #dc2626; --success: #15803d; --success-soft: #ecfdf3;
+  --radius-xs: 6px; --radius-sm: 8px; --radius: 10px; --radius-lg: 14px; --gap: 14px;
+  --shadow: none; --shadow-sm: none; --btn-shadow: none;
+  --card-lift: none; --card-hover-border: var(--primary); --img-zoom: none;
+  --header-bg: var(--surface);
+  --header-h: 60px; --ease: ease;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1115; --surface: #0f1115; --surface-2: #1b1f27; --text: #e5e7eb; --muted: #9ca3af; --border: #2a2f3a;
+    --primary: #3b82f6; --primary-hover: #60a5fa; --primary-soft: #172036; --success-soft: #11291b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1115; --surface: #0f1115; --surface-2: #1b1f27; --text: #e5e7eb; --muted: #9ca3af; --border: #2a2f3a;
+  --primary: #3b82f6; --primary-hover: #60a5fa; --primary-soft: #172036; --success-soft: #11291b; color-scheme: dark;
+}
+
+/* никаких переходов на карточках и плиток */
+.card, .cat, .promo__card, .tile--photo img, .perk { transition: none; }
+.tile--photo::before { animation: none; background: #f6f6f7; }
+.card:hover { box-shadow: none; }
+.promo__card { background: #111827; }
+.promo__card--warm { background: #9a3412; }
+.promo__card--violet { background: #4c1d95; }
+.promo__card img { mask-image: none; opacity: .55 !important; }
+.hero-lite { background: var(--surface-2); border: 0; }
+.cat__icon { background: var(--primary-soft); border-radius: 12px; }
+.slider__arrow { backdrop-filter: none; }
+.reveal { opacity: 1; transform: none; }
+.toast { box-shadow: 0 2px 10px rgba(0,0,0,.15); }

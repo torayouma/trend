@@ -1,0 +1,58 @@
+/* ===== Trend · скин «Зелёный»: изумрудный основной цвет и золотой акцент ===== */
+:root {
+  --bg: #f3f7f4; --surface: #ffffff; --surface-2: #e9f1ec; --text: #0f1f16; --muted: #5f7267; --border: #dbe6df;
+  --primary: #15803d; --primary-hover: #166534; --primary-soft: #e3f5ea; --accent: #d9a521;
+  --danger: #dc2626; --success: #15803d; --success-soft: #e3f5ea;
+  --radius-xs: 10px; --radius-sm: 14px; --radius: 20px; --radius-lg: 28px; --gap: 18px;
+  --shadow: 0 2px 4px rgba(16,40,24,.04), 0 24px 48px -20px rgba(16, 40, 24, .28);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --btn-shadow: 0 8px 20px -8px var(--primary);
+  --card-lift: translateY(-5px); --card-hover-border: transparent; --img-zoom: scale(1.05);
+  --header-bg: color-mix(in srgb, var(--surface) 80%, transparent);
+  --header-h: 66px; --ease: cubic-bezier(.2,.7,.2,1);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a120d; --surface: #111c15; --surface-2: #182619; --text: #eef5f0; --muted: #93a89b; --border: #233327;
+    --primary: #22c55e; --primary-hover: #4ade80; --primary-soft: #11301f; --success-soft: #11301f;
+    --shadow: 0 2px 4px rgba(0,0,0,.4), 0 24px 48px -20px rgba(0,0,0,.8); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a120d; --surface: #111c15; --surface-2: #182619; --text: #eef5f0; --muted: #93a89b; --border: #233327;
+  --primary: #22c55e; --primary-hover: #4ade80; --primary-soft: #11301f; --success-soft: #11301f;
+  --shadow: 0 2px 4px rgba(0,0,0,.4), 0 24px 48px -20px rgba(0,0,0,.8); color-scheme: dark;
+}
+
+body { background: radial-gradient(1200px 500px at 50% -200px, color-mix(in srgb, var(--primary) 14%, transparent), transparent 70%), var(--bg); }
+.header { backdrop-filter: blur(14px) saturate(160%); }
+.search:focus-within { box-shadow: 0 0 0 3px var(--primary-soft); }
+.avatar { background: linear-gradient(135deg, var(--primary), var(--accent)); }
+.card__tag--hit { background: var(--accent); color: #1a1403; }
+.card__tag--sale { background: #b45309; }
+.cat__icon { background: linear-gradient(135deg, var(--primary-soft), color-mix(in srgb, var(--accent) 25%, var(--surface))); }
+.section__head a { color: var(--primary); }
+
+/* слайдер: тёмно-зелёные слайды с золотым свечением */
+.slider { box-shadow: var(--shadow); }
+.slide { background: radial-gradient(800px 420px at 85% 15%, rgba(217,165,33,.38), transparent 60%), radial-gradient(500px 360px at 8% 95%, rgba(34,197,94,.3), transparent 60%), linear-gradient(135deg, #052e16 0%, #14532d 100%); }
+.slide--blue { background: radial-gradient(800px 420px at 85% 15%, rgba(45,212,191,.45), transparent 60%), linear-gradient(135deg, #042f2e 0%, #115e59 100%); }
+.slide--sky { background: radial-gradient(800px 420px at 85% 15%, rgba(217,165,33,.4), transparent 60%), linear-gradient(135deg, #065f46 0%, #10b981 100%); }
+.slide__badge { background: rgba(217,165,33,.18); border-color: rgba(217,165,33,.35); color: #fde68a; }
+.slide__media { filter: drop-shadow(0 30px 50px rgba(0,0,0,.55)); }
+.slide__media img { border-radius: 26px; }
+.slide .slide__media img { transform: translateY(14px) scale(.98); }
+.slide.active .slide__media img.loaded { transform: translateY(0) scale(1); }
+
+.card, .cat, .perk, .panel, .buybox, .product .tile { border-color: transparent; box-shadow: var(--shadow-sm); }
+.card:hover { box-shadow: var(--shadow); }
+.buybox { box-shadow: var(--shadow); }
+.promo__card { background: linear-gradient(160deg, #064e3b, #065f46); box-shadow: var(--shadow); }
+.promo__card--warm { background: linear-gradient(160deg, #92400e, #d97706); }
+.promo__card--violet { background: linear-gradient(160deg, #134e4a, #0f766e); }
+.promo__card .btn--primary { background: var(--accent); border-color: var(--accent); color: #1a1403; box-shadow: none; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }

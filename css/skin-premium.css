@@ -1,0 +1,60 @@
+/* ===== Trend · скин Premium: насыщенный, с глубиной, стеклом и мягкими анимациями ===== */
+:root {
+  --bg: #f4f5f9; --surface: #ffffff; --surface-2: #eef0f6; --text: #0f1222; --muted: #656b7d; --border: #e4e6ee;
+  --primary: #0a6cff; --primary-hover: #0558d6; --primary-soft: #e8f0ff;
+  --danger: #e0323b; --success: #1f9d55; --success-soft: #e7f7ee;
+  --radius-xs: 10px; --radius-sm: 14px; --radius: 20px; --radius-lg: 28px; --gap: 18px;
+  --shadow: 0 2px 4px rgba(16,24,40,.04), 0 24px 48px -20px rgba(16, 24, 40, .28);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --btn-shadow: 0 8px 20px -8px var(--primary);
+  --card-lift: translateY(-5px); --card-hover-border: transparent; --img-zoom: scale(1.05);
+  --header-bg: color-mix(in srgb, var(--surface) 80%, transparent);
+  --header-h: 66px; --ease: cubic-bezier(.2,.7,.2,1);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #090b12; --surface: #12151f; --surface-2: #1a1e2c; --text: #f2f3f7; --muted: #9ba1b3; --border: #252a3a;
+    --primary: #3b82f6; --primary-hover: #60a5fa; --primary-soft: #16233d; --success-soft: #12301f;
+    --shadow: 0 2px 4px rgba(0,0,0,.4), 0 24px 48px -20px rgba(0,0,0,.8); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #090b12; --surface: #12151f; --surface-2: #1a1e2c; --text: #f2f3f7; --muted: #9ba1b3; --border: #252a3a;
+  --primary: #3b82f6; --primary-hover: #60a5fa; --primary-soft: #16233d; --success-soft: #12301f;
+  --shadow: 0 2px 4px rgba(0,0,0,.4), 0 24px 48px -20px rgba(0,0,0,.8); color-scheme: dark;
+}
+
+/* фон с лёгким свечением */
+body { background: radial-gradient(1200px 500px at 50% -200px, color-mix(in srgb, var(--primary) 14%, transparent), transparent 70%), var(--bg); }
+.header { backdrop-filter: blur(14px) saturate(160%); }
+.search:focus-within { box-shadow: 0 0 0 3px var(--primary-soft); }
+.avatar { background: linear-gradient(135deg, var(--primary), #7c3aed); }
+
+/* слайдер акций: тёмные стеклянные слайды с цветным свечением */
+.slider { box-shadow: var(--shadow); }
+.slide { background: radial-gradient(800px 420px at 85% 15%, var(--glow, rgba(59,130,246,.5)), transparent 60%), radial-gradient(500px 360px at 8% 95%, rgba(168,85,247,.3), transparent 60%), linear-gradient(135deg, #0a0f1f 0%, #141b33 100%); }
+.slide--blue { --glow: rgba(14,165,233,.55); }
+.slide--sky { --glow: rgba(56,189,248,.5); background: radial-gradient(800px 420px at 85% 15%, var(--glow), transparent 60%), linear-gradient(135deg, #0c2a52 0%, #0a6cff 100%); }
+.slide__media { filter: drop-shadow(0 30px 50px rgba(0,0,0,.55)); }
+.slide__media img { border-radius: 26px; }
+.slide.active .slide__media img.loaded { transform: translateY(0) scale(1); }
+.slide .slide__media img { transform: translateY(14px) scale(.98); }
+
+/* карточки и разделы */
+.card { border-color: transparent; box-shadow: var(--shadow-sm); }
+.card:hover { box-shadow: var(--shadow); }
+.cat { border-color: transparent; box-shadow: var(--shadow-sm); }
+.cat__icon { background: linear-gradient(135deg, var(--primary-soft), color-mix(in srgb, var(--primary) 22%, var(--surface))); }
+.perk { border-color: transparent; box-shadow: var(--shadow-sm); }
+.promo__card { background: linear-gradient(160deg, #1e293b, #0f172a); box-shadow: var(--shadow); }
+.promo__card--warm { background: linear-gradient(160deg, #7c2d12, #ea580c); }
+.promo__card--violet { background: linear-gradient(160deg, #3b0764, #7c3aed); }
+.buybox { box-shadow: var(--shadow); border-color: transparent; }
+.product .tile { box-shadow: var(--shadow-sm); border-color: transparent; }
+.panel { box-shadow: var(--shadow-sm); border-color: transparent; }
+
+/* плавное появление секций при прокрутке (только transform и opacity) */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }

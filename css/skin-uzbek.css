@@ -1,0 +1,95 @@
+/* ===== Trend · скин «Узбекистан»: бирюза Регистана, кобальт, золото, узор гирих и футуристичное свечение ===== */
+:root {
+  --bg: #f6f3ec; --surface: #ffffff; --surface-2: #eee8da; --text: #141a2e; --muted: #6b6f7f; --border: #e3dccb;
+  --primary: #0e8f9c; --primary-hover: #0b7480; --primary-soft: #e0f4f5; --accent: #d4a62a; --cobalt: #1f3f8f; --terracotta: #c2410c;
+  --danger: #c2410c; --success: #0e8f9c; --success-soft: #e0f4f5;
+  --radius-xs: 8px; --radius-sm: 12px; --radius: 18px; --radius-lg: 26px; --gap: 18px;
+  --shadow: 0 2px 4px rgba(20,26,46,.04), 0 24px 48px -20px rgba(14,143,156,.35);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --btn-shadow: 0 8px 20px -8px var(--primary);
+  --card-lift: translateY(-5px); --card-hover-border: var(--primary); --img-zoom: scale(1.05);
+  --header-bg: color-mix(in srgb, var(--surface) 84%, transparent);
+  --header-h: 66px; --ease: cubic-bezier(.2,.7,.2,1);
+  /* узор гирих: восьмиконечная звезда из двух квадратов */
+  --girih: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%230e8f9c' stroke-width='1'%3E%3Crect x='20' y='20' width='32' height='32'/%3E%3Crect x='20' y='20' width='32' height='32' transform='rotate(45 36 36)'/%3E%3Ccircle cx='36' cy='36' r='5'/%3E%3Cpath d='M0 36h20M52 36h20M36 0v20M36 52v20'/%3E%3C/g%3E%3C/svg%3E");
+  --girih-gold: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23d4a62a' stroke-width='1'%3E%3Crect x='20' y='20' width='32' height='32'/%3E%3Crect x='20' y='20' width='32' height='32' transform='rotate(45 36 36)'/%3E%3Ccircle cx='36' cy='36' r='5'/%3E%3Cpath d='M0 36h20M52 36h20M36 0v20M36 52v20'/%3E%3C/g%3E%3C/svg%3E");
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b0f1e; --surface: #121a30; --surface-2: #1a2440; --text: #f2efe6; --muted: #9aa3bb; --border: #26314f;
+    --primary: #22c8d6; --primary-hover: #5ee0ea; --primary-soft: #12303a; --success-soft: #12303a;
+    --shadow: 0 2px 4px rgba(0,0,0,.5), 0 24px 48px -20px rgba(34,200,214,.45); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b0f1e; --surface: #121a30; --surface-2: #1a2440; --text: #f2efe6; --muted: #9aa3bb; --border: #26314f;
+  --primary: #22c8d6; --primary-hover: #5ee0ea; --primary-soft: #12303a; --success-soft: #12303a;
+  --shadow: 0 2px 4px rgba(0,0,0,.5), 0 24px 48px -20px rgba(34,200,214,.45); color-scheme: dark;
+}
+
+/* фон: тёплый песок с едва заметной сеткой гирих и бирюзовым свечением сверху */
+body { background: radial-gradient(1200px 500px at 50% -200px, color-mix(in srgb, var(--primary) 16%, transparent), transparent 70%), var(--bg); position: relative; }
+body::before { content: ""; position: fixed; inset: 0; background: var(--girih) center / 72px 72px; opacity: .07; pointer-events: none; z-index: 0; }
+.header, main, .footer { position: relative; z-index: 1; }
+.header { backdrop-filter: blur(14px) saturate(160%); }
+.header::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: linear-gradient(90deg, var(--accent), var(--primary) 35%, var(--cobalt) 70%, var(--accent)); }
+.logo span { letter-spacing: .08em; text-transform: uppercase; font-weight: 800; font-size: 1.05rem; }
+.nav a.active, .nav a:hover { background: var(--primary-soft); color: var(--primary); }
+.search:focus-within { box-shadow: 0 0 0 3px var(--primary-soft); }
+.avatar { background: linear-gradient(135deg, var(--primary), var(--cobalt)); }
+
+/* кнопки: бирюза → кобальт, лёгкое свечение */
+.btn--primary { background: linear-gradient(135deg, var(--primary), var(--cobalt)); border-color: transparent; box-shadow: 0 10px 24px -10px var(--primary); }
+.btn--primary:hover { background: linear-gradient(135deg, var(--primary-hover), var(--cobalt)); border-color: transparent; box-shadow: 0 12px 28px -10px var(--primary); }
+.btn--dark { background: var(--accent); border-color: var(--accent); color: #1a1403; }
+.btn--dark:hover { background: #c3972a; opacity: 1; }
+.chip--active { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+/* заголовки разделов с золотым ромбом, как мотив икат */
+.section__head h2::before { content: ""; display: inline-block; width: 10px; height: 10px; background: var(--accent); transform: rotate(45deg); margin: 0 12px 2px 2px; box-shadow: 0 0 10px var(--accent); }
+.section__head a { color: var(--primary); }
+
+/* карточки: тонкая рамка и неоновая подсветка при наведении */
+.card { box-shadow: var(--shadow-sm); }
+.card:hover { box-shadow: 0 0 0 1px var(--primary), 0 20px 40px -18px var(--primary); }
+.card__tag--hit { background: var(--accent); color: #1a1403; box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 60%, transparent); }
+.card__tag--new { background: linear-gradient(135deg, var(--primary), var(--cobalt)); box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 60%, transparent); }
+.card__tag--sale { background: var(--terracotta); }
+.cat { box-shadow: var(--shadow-sm); }
+.cat:hover { box-shadow: 0 0 0 1px var(--primary), 0 20px 40px -18px var(--primary); }
+.cat__icon { background: var(--girih) center / 36px 36px, linear-gradient(135deg, var(--primary-soft), color-mix(in srgb, var(--accent) 20%, var(--surface))); border: 1px solid var(--border); }
+.perk { border-color: var(--border); }
+.perk svg { color: var(--accent); }
+.buybox { box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--primary) 35%, var(--border)); }
+.product .tile { border-color: color-mix(in srgb, var(--primary) 35%, var(--border)); }
+.swatch--active { outline-color: var(--accent); }
+.product__thumbs button.active { outline-color: var(--accent); }
+
+/* слайдер: глубокий индиго с узором, бирюзовым и золотым свечением; заголовок градиентом */
+.slider { box-shadow: 0 30px 60px -30px var(--primary); }
+.slide { position: relative; background: radial-gradient(800px 420px at 85% 15%, rgba(34,200,214,.45), transparent 60%), radial-gradient(500px 360px at 8% 95%, rgba(212,166,42,.3), transparent 60%), linear-gradient(135deg, #0b1a3a 0%, #0e3a5c 100%); }
+.slide::before { content: ""; position: absolute; inset: 0; background: var(--girih-gold) center / 72px 72px; opacity: .12; pointer-events: none; mask-image: linear-gradient(90deg, #000 40%, transparent 80%); }
+.slide--blue { background: radial-gradient(800px 420px at 85% 15%, rgba(212,166,42,.4), transparent 60%), linear-gradient(135deg, #0a2c5c 0%, #1f3f8f 100%); }
+.slide--sky { background: radial-gradient(800px 420px at 85% 15%, rgba(34,200,214,.5), transparent 60%), linear-gradient(135deg, #0e3a5c 0%, #0e8f9c 100%); }
+.slide > div { position: relative; }
+.slide h2 { background: linear-gradient(90deg, #fff 0%, #a7f3f7 55%, #fde68a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.slide__badge { background: rgba(212,166,42,.16); border-color: rgba(212,166,42,.4); color: #fde68a; }
+.slide__media { filter: drop-shadow(0 0 40px rgba(34,200,214,.35)) drop-shadow(0 30px 50px rgba(0,0,0,.5)); }
+.slide__media img { border-radius: 24px; outline: 1px solid rgba(212,166,42,.45); outline-offset: -1px; }
+.slide .slide__media img { transform: translateY(14px) scale(.98); }
+.slide.active .slide__media img.loaded { transform: translateY(0) scale(1); }
+.slider__dots button.active { background: var(--accent); }
+
+.promo__card { background: var(--girih-gold) center / 72px 72px, linear-gradient(160deg, #0b1a3a, #1f3f8f); background-blend-mode: soft-light, normal; box-shadow: var(--shadow); }
+.promo__card--warm { background: var(--girih-gold) center / 72px 72px, linear-gradient(160deg, #7c2d12, #c2410c); }
+.promo__card--violet { background: var(--girih) center / 72px 72px, linear-gradient(160deg, #0e3a5c, #0e8f9c); }
+.promo__card .btn--primary { background: var(--accent); border-color: var(--accent); color: #1a1403; box-shadow: none; }
+
+.footer { border-top: 0; background: var(--girih) center / 72px 72px, var(--surface); background-blend-mode: soft-light, normal; }
+.footer::before { content: ""; display: block; height: 3px; background: linear-gradient(90deg, var(--accent), var(--primary) 35%, var(--cobalt) 70%, var(--accent)); }
+.toast { background: linear-gradient(135deg, var(--primary), var(--cobalt)); color: #fff; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
