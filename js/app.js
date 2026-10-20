@@ -810,7 +810,7 @@
     const s = skinSelect.value;
     if (!SKINS.includes(s) || s === skin()) return;
     root.dataset.skin = s;
-    $('#skin-css').href = `css/skin-${s}.css`;
+    $('#skin-css').href = `css/skin-${s}.css?v=4`;
     try { localStorage.setItem('tr_skin', s); } catch {}
     navigate();
     toast(t('skin.toast.' + s));
