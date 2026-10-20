@@ -16,13 +16,14 @@ const CATEGORIES = [
 const AS = 'https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/';
 const AV = 'https://www.apple.com/v/';
 const NEWS = 'https://www.apple.com/newsroom/images/';
+/* Первое фото (перед и зад целиком) — сжатый WebP из папки img/iphone, остальные ракурсы — с сервера Apple */
 const iphoneShots = (model, color, date) => [
-  `${AS}${model}-finish-select-${color}-${date}?wid=940&hei=1112&fmt=png-alpha`,
+  `img/iphone/${model}-${color}.webp`,
   `${AS}${model}-witb-${color}-${date}?wid=346&hei=784&fmt=jpeg&qlt=90`,
   `${AS}${model}-finish-select-${color}-${date}_AV3?wid=1246&hei=518&fmt=jpeg&qlt=90`,
   `${AS}${model}-finish-select-${color}-${date}_AV2?wid=724&hei=540&fmt=jpeg&qlt=90`,
 ];
-const iphoneColor = (name, hex, model, color, date) => { const images = iphoneShots(model, color, date); return { name, hex, images, card: images[1] }; };
+const iphoneColor = (name, hex, model, color, date) => { const images = iphoneShots(model, color, date); return { name, hex, images, card: images[0] }; };
 const mbaShots = color => [`${AS}mba13-${color}-select-202503?wid=904&hei=840&fmt=jpeg&qlt=90`, `${AS}mba13-${color}-witb-202503?wid=640&hei=680&fmt=jpeg&qlt=90`];
 const ipadShots = (storeColor, pngName) => [
   `${AS}ipad-air-witb-${storeColor}-11in-wifi-202405?wid=640&hei=680&fmt=jpeg&qlt=90`,
