@@ -46,9 +46,23 @@ main.container { flex: 1; padding-top: 28px; padding-bottom: 64px; }
 @keyframes bump { 40% { transform: scale(1.35); } }
 .avatar { position: absolute; inset: 0; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--primary); color: #fff; font-weight: 700; font-size: .9rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.skin-select { position: relative; margin-right: 6px; }
-.skin-select select { appearance: none; -webkit-appearance: none; height: 34px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); padding: 0 30px 0 14px; font-size: .8rem; font-weight: 700; color: var(--text); cursor: pointer; }
-.skin-select::after { content: ""; position: absolute; right: 12px; top: 50%; width: 7px; height: 7px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.hdr-select { position: relative; margin-right: 4px; }
+.hdr-select select { appearance: none; -webkit-appearance: none; height: 34px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); padding: 0 28px 0 14px; font-size: .8rem; font-weight: 700; color: var(--text); cursor: pointer; }
+.hdr-select::after { content: ""; position: absolute; right: 12px; top: 50%; width: 7px; height: 7px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.hdr-select--lang select { padding-left: 12px; letter-spacing: .04em; }
+
+/* ===== Оплата ===== */
+.pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.pay-card { display: flex; gap: 12px; align-items: center; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; transition: border-color .15s, background .15s; }
+.pay-card:has(input:checked) { border-color: var(--primary); background: var(--primary-soft); }
+.pay-card input { position: absolute; opacity: 0; pointer-events: none; }
+.pay-mark { flex: none; min-width: 64px; height: 36px; padding: 0 10px; border-radius: 8px; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: .72rem; letter-spacing: .04em; white-space: nowrap; }
+.pay-card strong { display: block; font-size: .95rem; }
+.pay-card span { font-size: .8rem; color: var(--muted); }
+.pay-page { max-width: 520px; margin: 24px auto; text-align: center; }
+.pay-page .pay-mark { margin: 0 auto 16px; height: 56px; min-width: 120px; font-size: 1.1rem; border-radius: 14px; }
+.pay-page__amount { font-size: 2rem; font-weight: 800; letter-spacing: -.03em; margin: 6px 0 18px; }
+.pay-page__note { font-size: .88rem; color: var(--muted); background: var(--surface-2); border-radius: var(--radius-sm); padding: 12px 14px; margin: 18px 0; text-align: left; }
 
 /* ===== Кнопки, чипы, формы ===== */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 20px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--surface); color: var(--text); font-weight: 600; transition: background .15s, transform .1s, border-color .15s, box-shadow .15s; white-space: nowrap; }
@@ -297,7 +311,8 @@ main.container { flex: 1; padding-top: 28px; padding-bottom: 64px; }
   .slide__media, .hero-lite__media { max-height: 300px; justify-self: stretch; aspect-ratio: 16 / 10; }
   .slide { min-height: 0; padding-bottom: 56px; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
-  .skin-select select { padding-left: 10px; font-size: .74rem; }
+  .hdr-select select { padding-left: 10px; padding-right: 24px; font-size: .74rem; }
+  .pay-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .container { padding: 0 16px; }
